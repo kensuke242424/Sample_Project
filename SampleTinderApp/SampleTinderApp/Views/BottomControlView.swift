@@ -33,22 +33,20 @@ struct BottomButtonView: View {
     // 丸枠のframe数値を呼び出し時に渡す
     var backGroundSize: CGFloat
 
-
-
-
-
-
-
     var body: some View {
 
         // ✅丸枠のボタンView
         ZStack {
 
             // 丸枠を作成
-            Color.white.frame(width: backGroundSize, height: backGroundSize)
-                .cornerRadius(50)
-            // 影をつける
-                .shadow(radius: 10)
+            Color.white
+//                .frame(width: backGroundSize, height: backGroundSize)
+//                .cornerRadius(50)
+//                .shadow(radius: 10)
+
+                // 作成したカスタムモディファイアを呼び出し
+                // 引数は指定したCGFroat型のbackGroundSizeを渡す
+                .asRoundShadow(size: backGroundSize)
 
             Button (action: {
             }) {
@@ -62,4 +60,29 @@ struct BottomButtonView: View {
             } // BottomButton
         } // ZStack
     }
+}
+
+
+// カスタムモディファイア
+struct ButtomButtonModifier: ViewModifier {
+
+    var size: CGFloat
+
+    // content View自体のこと
+    func body(content: Content) -> some View {
+        content
+            .frame(width: size, height: size)
+            .cornerRadius(size)
+            .shadow(radius: 10)
+    }
+}
+
+// ⬆︎で作成したモディファイアをViewに渡せるようにする
+extension View {
+
+    func asRoundShadow(size: CGFloat) -> some View {
+
+        modifier(ButtomButtonModifier(size: size))
+    }
+
 }
