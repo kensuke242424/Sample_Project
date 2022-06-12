@@ -106,95 +106,11 @@ struct ContentView: View {
 
             // 画面下部のボタン
             HStack(spacing: 20) {
-                ZStack {
-
-                    // 丸枠を作成
-                    Color.white.frame(width: 40, height: 40)
-                        .cornerRadius(50)
-                    // 影をつける
-                        .shadow(radius: 10)
-
-                    Button (action: {
-                    }) {
-                        Image(systemName: "gobackward")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20, alignment: .center)
-
-                    } // BottomButton
-                } // ZStack
-
-                ZStack {
-
-                    // 丸枠を作成
-                    Color.white.frame(width: 50, height: 50)
-                        .cornerRadius(50)
-                    // 影をつける
-                        .shadow(radius: 10)
-
-                    Button (action: {
-                    }) {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20, alignment: .center)
-
-                    } // BottomButton
-                } // ZStack
-
-                ZStack {
-
-                    // 丸枠を作成
-                    Color.white.frame(width: 40, height: 40)
-                        .cornerRadius(50)
-                    // 影をつける
-                        .shadow(radius: 10)
-
-                    Button (action: {
-                    }) {
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20, alignment: .center)
-
-                    } // BottomButton
-                } // ZStack
-
-                ZStack {
-
-                    // 丸枠を作成
-                    Color.white.frame(width: 50, height: 50)
-                        .cornerRadius(50)
-                    // 影をつける
-                        .shadow(radius: 10)
-
-                    Button (action: {
-                    }) {
-                        Image(systemName: "suit.heart.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 20, height: 20, alignment: .center)
-
-                    } // BottomButton
-                } // ZStack
-
-                ZStack {
-
-                    // 丸枠を作成
-                    Color.white.frame(width: 40, height: 40)
-                        .cornerRadius(50)
-                    // 影をつける
-                        .shadow(radius: 10)
-
-                    Button (action: {
-                    }) {
-                        Image(systemName: "bolt.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 15, height: 15, alignment: .center)
-
-                    } // BottomButton
-                } // ZStack
+                CircleButtonView(imageName: "gobackward", imageSize: 20, backGroundSize: 40)
+                CircleButtonView(imageName: "xmark", imageSize: 20, backGroundSize: 50)
+                CircleButtonView(imageName: "star.fill", imageSize: 20, backGroundSize: 40)
+                CircleButtonView(imageName: "suit.heart.fill", imageSize: 20, backGroundSize: 50)
+                CircleButtonView(imageName: "bolt.fill", imageSize: 15, backGroundSize: 40)
             }
 
         } // VStack
