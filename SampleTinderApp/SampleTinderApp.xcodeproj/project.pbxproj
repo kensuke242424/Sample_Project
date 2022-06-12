@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01E028828563EF300E83C99 /* TopControloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E028728563EF300E83C99 /* TopControloView.swift */; };
+		E01E028A28563FBA00E83C99 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E028928563FBA00E83C99 /* BottomControlView.swift */; };
 		E06CBA8128517C1D000624D5 /* SampleTinderAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CBA8028517C1D000624D5 /* SampleTinderAppApp.swift */; };
-		E06CBA8328517C1D000624D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CBA8228517C1D000624D5 /* ContentView.swift */; };
+		E06CBA8328517C1D000624D5 /*  HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CBA8228517C1D000624D5 /*  HomeView.swift */; };
 		E06CBA8528517C1F000624D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06CBA8428517C1F000624D5 /* Assets.xcassets */; };
 		E06CBA8828517C1F000624D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06CBA8728517C1F000624D5 /* Preview Assets.xcassets */; };
 		E0E2239C2854B44D0079F770 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2239B2854B44D0079F770 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E01E028728563EF300E83C99 /* TopControloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControloView.swift; sourceTree = "<group>"; };
+		E01E028928563FBA00E83C99 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		E06CBA7D28517C1D000624D5 /* SampleTinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleTinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06CBA8028517C1D000624D5 /* SampleTinderAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTinderAppApp.swift; sourceTree = "<group>"; };
-		E06CBA8228517C1D000624D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E06CBA8228517C1D000624D5 /*  HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HomeView.swift"; sourceTree = "<group>"; };
 		E06CBA8428517C1F000624D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06CBA8728517C1F000624D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0E2239B2854B44D0079F770 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -53,8 +57,8 @@
 		E06CBA7F28517C1D000624D5 /* SampleTinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				E0EF562928563D7B00B5FEA9 /* Views */,
 				E06CBA8028517C1D000624D5 /* SampleTinderAppApp.swift */,
-				E06CBA8228517C1D000624D5 /* ContentView.swift */,
 				E0E2239B2854B44D0079F770 /* ButtonView.swift */,
 				E06CBA8428517C1F000624D5 /* Assets.xcassets */,
 				E06CBA8628517C1F000624D5 /* Preview Content */,
@@ -68,6 +72,16 @@
 				E06CBA8728517C1F000624D5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0EF562928563D7B00B5FEA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E06CBA8228517C1D000624D5 /*  HomeView.swift */,
+				E01E028728563EF300E83C99 /* TopControloView.swift */,
+				E01E028928563FBA00E83C99 /* BottomControlView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E06CBA8328517C1D000624D5 /* ContentView.swift in Sources */,
+				E01E028A28563FBA00E83C99 /* BottomControlView.swift in Sources */,
+				E06CBA8328517C1D000624D5 /*  HomeView.swift in Sources */,
 				E06CBA8128517C1D000624D5 /* SampleTinderAppApp.swift in Sources */,
+				E01E028828563EF300E83C99 /* TopControloView.swift in Sources */,
 				E0E2239C2854B44D0079F770 /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

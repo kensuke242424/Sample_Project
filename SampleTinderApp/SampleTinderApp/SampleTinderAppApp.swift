@@ -11,7 +11,7 @@ import SwiftUI
 struct SampleTinderAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+             HomeView()
         }
     }
 }

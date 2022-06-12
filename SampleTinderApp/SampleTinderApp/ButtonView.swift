@@ -28,37 +28,7 @@ struct ButtonView: View {
     }
 }
 
-// ✅丸枠のボタンView
-struct CircleButtonView: View {
 
-    var imageName: String
-    var imageSize: CGFloat
-    // 丸枠のframe数値を呼び出し時に渡す
-    var backGroundSize: CGFloat
-
-    var body: some View {
-
-        ZStack {
-
-            // 丸枠を作成
-            Color.white.frame(width: backGroundSize, height: backGroundSize)
-                .cornerRadius(50)
-            // 影をつける
-                .shadow(radius: 10)
-
-            Button (action: {
-            }) {
-                // ボタンの外見部分
-                // ImageにSF Symbolを使っています
-                Image(systemName: imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: imageSize, height: imageSize, alignment: .center)
-
-            } // BottomButton
-        } // ZStack
-    }
-}
 
 // ✅楕円枠のボタンView
 struct EllipseButtonView: View {
