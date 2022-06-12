@@ -50,3 +50,5 @@ func isPrimeNumber(divisorNumber: Int, brokenNumber: Int) {
 isPrimeNumber(divisorNumber: 1, brokenNumber: 10)
 
 
+
+
