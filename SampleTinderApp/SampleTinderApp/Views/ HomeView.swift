@@ -26,6 +26,7 @@ struct  HomeView: View {
             TopControloView()
 
             CardView()
+                .padding(.bottom, 10)
 
             // 下部ボタン呼び出し
             BottomControlView()
@@ -35,6 +36,7 @@ struct  HomeView: View {
     } // body
 } // View
 
+// 人物カードのデザインView
 struct CardView: View {
 
     // 画面の横幅をiPhoneのフレームラインに合わせる
@@ -42,16 +44,33 @@ struct CardView: View {
 
     var body: some View {
 
+        // 後で調べる
         GeometryReader(content: { geometry in
 
-            Image("man1")
-                .resizable()
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .background(Color.blue)
+            // 画像にテキストをうまく重ねるため、ZStackを重ねる必要がある
+            ZStack {
+                ZStack {
 
+                    Image("man1")
+                        .resizable()
+                        .scaledToFill()
 
-        })
+                    LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .top, endPoint: .bottom)
+
+                }
+
+                // Imageとグラディエントをまとめてモディファイアでフレーム調整
+                .frame(width: geometry.size.width - 20, height: geometry.size.height)
+                .cornerRadius(10)
+                .padding(.all, 10)
+                .shadow(radius: 10)
+
+                Text("Taro")
+                    .foregroundColor(Color.white)
+                // system fontを使うことで数値でフォントデザインを指定可能
+                    .font(.system(size: 25, weight: .heavy))
+            }
+        }) // GeometryReader
 
 
 
