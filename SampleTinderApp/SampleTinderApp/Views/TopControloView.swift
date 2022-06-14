@@ -27,11 +27,9 @@ struct TopControloView: View {
                 selectedItem = .profile
             }) {
                 Image(systemName: "person.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30, alignment: .center)
+                // カスタムモディファイア
+                    .asTopControlButtonImage()
                     .foregroundColor(selectedItem == .profile ? .pink : .gray)
-
             }
 
             Spacer()
@@ -40,7 +38,7 @@ struct TopControloView: View {
                 // 楕円形枠ボタン
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(Color.white)
-                    // 縦と横の値をそれぞれ別の値で指定できるように
+                // 縦と横の値をそれぞれ別の値で指定できるように
                     .frame(width: 50, height: 40)
                     .shadow(radius: 10)
 
@@ -48,11 +46,9 @@ struct TopControloView: View {
                     selectedItem = .good
                 }) {
                     Image(systemName: "flame.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 25, alignment: .center)
+                    // カスタムモディファイア
+                        .asTopControlButtonImage()
                         .foregroundColor(selectedItem == .good ? .red : .gray)
-
                 }
             } // ZStack
 
@@ -60,7 +56,7 @@ struct TopControloView: View {
                 // 楕円形枠ボタン
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(Color.white)
-                    // 縦と横の値をそれぞれ別の値で指定できるように
+                // 縦と横の値をそれぞれ別の値で指定できるように
                     .frame(width: 50, height: 40)
                     .shadow(radius: 10)
 
@@ -68,9 +64,8 @@ struct TopControloView: View {
                     selectedItem = .tinder
                 }) {
                     Image(systemName: "leaf.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 25, alignment: .center)
+                    // カスタムモディファイア
+                        .asTopControlButtonImage()
                         .foregroundColor(selectedItem == .tinder ? .green : .gray)
 
                 }
@@ -83,9 +78,8 @@ struct TopControloView: View {
             }) {
                 // Image(systemName: "<シンボル名>") ← これでSFSymbolのアイコンが呼び出せます
                 Image(systemName: "message.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30, alignment: .center)
+                // カスタムモディファイア
+                    .asTopControlButtonImage()
                     .foregroundColor(selectedItem == .comment ? .yellow : .gray)
             }
 
@@ -96,4 +90,5 @@ struct TopControloView: View {
         // 上部ボタンここまで
     }
 }
+
 

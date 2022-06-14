@@ -23,25 +23,45 @@ struct  HomeView: View {
         VStack {
 
             // 上部ボタン呼び出し
-           TopControloView()
+            TopControloView()
 
-            // 写真が表示される部分
-            Text("Image")
-                .padding()
-                .frame(width: frameWidth, height: 600)
-                .background(Color.blue)
+            CardView()
 
             // 下部ボタン呼び出し
             BottomControlView()
-           
+
 
         } // VStack
     } // body
 } // View
 
+struct CardView: View {
+
+    // 画面の横幅をiPhoneのフレームラインに合わせる
+    private var frameWidth: CGFloat {UIScreen.main.bounds.width}
+
+    var body: some View {
+
+        GeometryReader(content: { geometry in
+
+            Image("man1")
+                .resizable()
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .background(Color.blue)
+
+
+        })
+
+
+
+    }
+
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-         HomeView()
+        HomeView()
     }
 }
 

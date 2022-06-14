@@ -9,9 +9,6 @@ import SwiftUI
 
 struct BottomControlView: View {
 
-    // 画面の横幅をiPhoneのフレームラインに合わせる
-    private var frameWidth: CGFloat {UIScreen.main.bounds.width}
-
     var body: some View {
 
         // 画面下部のボタン
@@ -30,7 +27,7 @@ struct BottomButtonView: View {
 
     var imageName: String
     var imageSize: CGFloat
-    // 丸枠のframe数値を呼び出し時に渡す
+    // 丸枠のframe数値はボタンView呼び出し時に渡される
     var backGroundSize: CGFloat
 
     var body: some View {
@@ -40,10 +37,6 @@ struct BottomButtonView: View {
 
             // 丸枠を作成
             Color.white
-//                .frame(width: backGroundSize, height: backGroundSize)
-//                .cornerRadius(50)
-//                .shadow(radius: 10)
-
                 // 作成したカスタムモディファイアを呼び出し
                 // 引数は指定したCGFroat型のbackGroundSizeを渡す
                 .asRoundShadow(size: backGroundSize)
@@ -63,26 +56,5 @@ struct BottomButtonView: View {
 }
 
 
-// カスタムモディファイア
-struct ButtomButtonModifier: ViewModifier {
-
-    var size: CGFloat
-
-    // content View自体のこと
-    func body(content: Content) -> some View {
-        content
-            .frame(width: size, height: size)
-            .cornerRadius(size)
-            .shadow(radius: 10)
-    }
-}
 
 // ⬆︎で作成したモディファイアをViewに渡せるようにする
-extension View {
-
-    func asRoundShadow(size: CGFloat) -> some View {
-
-        modifier(ButtomButtonModifier(size: size))
-    }
-
-}
