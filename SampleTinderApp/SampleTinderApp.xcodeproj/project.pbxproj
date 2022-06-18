@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00D0BA5285E0C2500C45486 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D0BA4285E0C2500C45486 /* CardViewModel.swift */; };
 		E01E028828563EF300E83C99 /* TopControloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E028728563EF300E83C99 /* TopControloView.swift */; };
 		E01E028A28563FBA00E83C99 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E028928563FBA00E83C99 /* BottomControlView.swift */; };
 		E01E028F285646F400E83C99 /* ButtomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E028E285646F400E83C99 /* ButtomButtonModifier.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00D0BA4285E0C2500C45486 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		E01E028728563EF300E83C99 /* TopControloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControloView.swift; sourceTree = "<group>"; };
 		E01E028928563FBA00E83C99 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		E01E028E285646F400E83C99 /* ButtomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomButtonModifier.swift; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E00D0BA3285E0C0600C45486 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E00D0BA4285E0C2500C45486 /* CardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E01E028B2856467B00E83C99 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		E06CBA7F28517C1D000624D5 /* SampleTinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				E00D0BA3285E0C0600C45486 /* ViewModel */,
 				E06CBA8028517C1D000624D5 /* SampleTinderAppApp.swift */,
 				E01E028B2856467B00E83C99 /* Util */,
 				E0EF562928563D7B00B5FEA9 /* Views */,
@@ -195,6 +206,7 @@
 				E01E028828563EF300E83C99 /* TopControloView.swift in Sources */,
 				E01E0294285647A400E83C99 /* Image.Extension.swift in Sources */,
 				E0E2239C2854B44D0079F770 /* ButtonView.swift in Sources */,
+				E00D0BA5285E0C2500C45486 /* CardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

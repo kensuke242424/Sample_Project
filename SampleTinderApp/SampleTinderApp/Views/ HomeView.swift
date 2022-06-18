@@ -53,91 +53,8 @@ struct CardView: View {
 
             ForEach(numbers, id: \.self) { number in
 
-                // カードView全体が束ねられている
-                ZStack {
-                    ZStack {
+                CardDetailView()
 
-                        Image("neko1")
-                            .resizable()
-                            .scaledToFill()
-
-                        LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .top, endPoint: .bottom)
-
-                    }
-                    // Imageとグラディエントをまとめてモディファイアでフレーム調整
-                    .frame(width: geometry.size.width - 20, height: geometry.size.height)
-                    .cornerRadius(10)
-                    .padding(.all, 10)
-                    .shadow(radius: 10)
-
-
-                    VStack {
-
-                        HStack {
-                            Text("GOOD")
-                                .font(.system(size: 40, weight: .heavy))
-                                .foregroundColor(.green)
-                                .padding(.all, 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(Color.green, lineWidth: 4)
-                                )
-                                .opacity(self.numbers.last == number ? goodOpacity : .zero)
-
-                            Spacer()
-
-                            Text("NOPE")
-                                .font(.system(size: 40, weight: .heavy))
-                                .foregroundColor(.red)
-                                .padding(.all, 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(Color.red, lineWidth: 4)
-                                )
-                                .opacity(self.numbers.last == number ? nopeOpacity : .zero)
-                        }
-                        .padding(.all, 30)
-
-                        Spacer()
-
-                        HStack {
-                            //(alignment: .leading)でテキストが左寄りに並ぶ
-                            VStack(alignment: .leading) {
-                                Text("Daikiti")
-                                    .foregroundColor(Color.white)
-                                // system fontを使うことで数値でフォントデザインを指定可能
-                                    .font(.system(size: 40, weight: .heavy))
-
-                                Text("大阪")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 20, weight: .medium))
-
-                                Text("カツオ")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 25, weight: .medium))
-
-                                Text("カツオが大好きです")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 25, weight: .medium))
-                            }
-                            // テキストの位置を変えたければpaddingを指定
-                            .padding(.leading, 20)
-
-                            // テキストとボタンの間を空ける
-                            Spacer()
-
-                            Button(action: {}, label: {
-                                Image(systemName: "info.circle.fill")
-                                    .resizable()
-                                    .foregroundColor(.white)
-                                    .frame(width: 40, height: 40)
-                            })
-                            .padding(.trailing, 50)
-
-                        }
-                        .padding(.bottom, 40)
-                    }
-                }
                 .offset(x:0, y:-10)
                 // カードを動かすための処理
                 // 状態変数として宣言したtranslationプロパティの値が
@@ -225,9 +142,93 @@ struct CardView: View {
 
 struct CardDetailView: View {
     var body: some View {
-Text("")
-    }
-}
+        // カードView全体が束ねられている
+        ZStack {
+            ZStack {
+
+                Image("neko1")
+                    .resizable()
+                    .scaledToFill()
+
+                LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .top, endPoint: .bottom)
+
+            }
+            // Imageとグラディエントをまとめてモディファイアでフレーム調整
+            .frame(width: geometry.size.width - 20, height: geometry.size.height)
+            .cornerRadius(10)
+            .padding(.all, 10)
+            .shadow(radius: 10)
+
+
+            VStack {
+
+                HStack {
+                    Text("GOOD")
+                        .font(.system(size: 40, weight: .heavy))
+                        .foregroundColor(.green)
+                        .padding(.all, 5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.green, lineWidth: 4)
+                        )
+                        .opacity(self.numbers.last == number ? goodOpacity : .zero)
+
+                    Spacer()
+
+                    Text("NOPE")
+                        .font(.system(size: 40, weight: .heavy))
+                        .foregroundColor(.red)
+                        .padding(.all, 5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.red, lineWidth: 4)
+                        )
+                        .opacity(self.numbers.last == number ? nopeOpacity : .zero)
+                }
+                .padding(.all, 30)
+
+                Spacer()
+
+                HStack {
+                    //(alignment: .leading)でテキストが左寄りに並ぶ
+                    VStack(alignment: .leading) {
+                        Text("Daikiti")
+                            .foregroundColor(Color.white)
+                        // system fontを使うことで数値でフォントデザインを指定可能
+                            .font(.system(size: 40, weight: .heavy))
+
+                        Text("大阪")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 20, weight: .medium))
+
+                        Text("カツオ")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 25, weight: .medium))
+
+                        Text("カツオが大好きです")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 25, weight: .medium))
+                    }
+                    // テキストの位置を変えたければpaddingを指定
+                    .padding(.leading, 20)
+
+                    // テキストとボタンの間を空ける
+                    Spacer()
+
+                    Button(action: {}, label: {
+                        Image(systemName: "info.circle.fill")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                    })
+                    .padding(.trailing, 50)
+
+                }
+                .padding(.bottom, 40)
+            }
+        } // ZStack
+    } // body
+} // View
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
