@@ -9,10 +9,13 @@ import SwiftUI
 
 class CardViewModel: ObservableObject {
 
-    // .zero = (x: 0, y: 0)
-    @State var translation: CGSize = .zero
-    @State var numbers = [0,1,2,3,4,5]
-    @State var goodOpacity: Double = 0
-    @State var nopeOpacity: Double = 0
+    @Published var translation: CGSize = .zero
+    @Published var numbers = [0,1,2,3,4,5]
+    @Published var goodOpacity: Double = 0
+    @Published var nopeOpacity: Double = 0
+
+    init() {
+
+    }
 
 }

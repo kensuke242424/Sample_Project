@@ -99,8 +99,8 @@
 		E06CBA7F28517C1D000624D5 /* SampleTinderApp */ = {
 			isa = PBXGroup;
 			children = (
-				E00D0BA3285E0C0600C45486 /* ViewModel */,
 				E06CBA8028517C1D000624D5 /* SampleTinderAppApp.swift */,
+				E00D0BA3285E0C0600C45486 /* ViewModel */,
 				E01E028B2856467B00E83C99 /* Util */,
 				E0EF562928563D7B00B5FEA9 /* Views */,
 				E0E2239B2854B44D0079F770 /* ButtonView.swift */,
