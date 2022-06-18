@@ -27,7 +27,6 @@ struct  HomeView: View {
 
             CardView()
 
-
             // 下部ボタン呼び出し
             BottomControlView()
 
@@ -39,10 +38,13 @@ struct  HomeView: View {
 // 人物カードのデザインView
 struct CardView: View {
 
-    // .zero = (x: 0, y: 0)
+    // スワイプジェスチャー時の値の変化を監視
     @State var translation: CGSize = .zero
+    // 複数カード生成時のForEachが参照している配列
     @State var numbers = [0,1,2,3,4,5]
+    // 「GOOD」の透明度の変化を監視
     @State var goodOpacity: Double = 0
+    // 「NOPE」の透明度の変化を監視
     @State var nopeOpacity: Double = 0
 
 
