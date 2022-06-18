@@ -26,7 +26,7 @@ struct  HomeView: View {
             TopControloView()
 
             CardView()
-                .padding(.bottom, 10)
+
 
             // 下部ボタン呼び出し
             BottomControlView()
@@ -42,6 +42,9 @@ struct CardView: View {
     // .zero = (x: 0, y: 0)
     @State var translation: CGSize = .zero
     @State var numbers = [0,1,2,3,4,5]
+    @State var goodOpacity: Double = 0
+    @State var nopeOpacity: Double = 0
+
 
     var body: some View {
 
@@ -78,8 +81,8 @@ struct CardView: View {
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 15)
                                         .stroke(Color.green, lineWidth: 4)
-
                                 )
+                                .opacity(self.numbers.last == number ? goodOpacity : .zero)
 
                             Spacer()
 
@@ -91,6 +94,7 @@ struct CardView: View {
                                     RoundedRectangle(cornerRadius: 15)
                                         .stroke(Color.red, lineWidth: 4)
                                 )
+                                .opacity(self.numbers.last == number ? nopeOpacity : .zero)
                         }
                         .padding(.all, 30)
 
@@ -134,6 +138,7 @@ struct CardView: View {
                         .padding(.bottom, 40)
                     }
                 }
+                .offset(x:0, y:-10)
                 // カードを動かすための処理
                 // 状態変数として宣言したtranslationプロパティの値が
                 // .gestureによって変化することでカードの位置を動かしている
@@ -143,37 +148,13 @@ struct CardView: View {
                     DragGesture()
                     // ドラッグによる値の変化をvalueに格納している
                         .onChanged({ value in
-                            // translasionプロパティの値にvalue内のtranslation値を参照させて状態変数で変化させている
-                            self.translation = value.translation
-                            // ドラッグによる値の動きが格納されたvalueのlocation(位置情報)をプリント
-                            print("value.location: ", value.location)
-
+                            // 関数dragOnChanged
+                            self.dragOnChanged(value: value)
                         }) // .onChanged
+
                         .onEnded({ value in
-                            if value.startLocation.x - 150 > value.location.x {
-
-                                // 左側にフェードアウト
-                                self.translation = .init(width: -800, height: 0)
-
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    self.numbers.removeLast()
-                                    self.translation = .zero
-                                }
-
-
-                            } else if value.startLocation.x + 150 < value.location.x {
-
-                                // 右側にフェードアウト
-                                self.translation = .init(width: 800, height: 0)
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    self.numbers.removeLast()
-                                    self.translation = .zero
-                                }
-
-                            } else {
-                                // 元の位置に戻る
-                                self.translation = .zero
-                            }
+                            // 関数dragOnEnded
+                            self.dragOnEnded(value: value)
                         }) // .onEnded
 
                 ) // .gesture
@@ -184,7 +165,69 @@ struct CardView: View {
 
         }) // GeometryReader®
     } // body
+
+    // カードViewのドラッグが終了した後
+    private func dragOnEnded(value: DragGesture.Value) {
+
+        self.goodOpacity = .zero
+        self.nopeOpacity = .zero
+
+        if value.startLocation.x - 150 > value.location.x {
+
+            // 左側にフェードアウト
+            self.translation = .init(width: -800, height: 0)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.numbers.removeLast()
+                self.translation = .zero
+            }
+
+
+        } else if value.startLocation.x + 150 < value.location.x {
+
+            // 右側にフェードアウト
+            self.translation = .init(width: 800, height: 0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.numbers.removeLast()
+                self.translation = .zero
+            }
+
+        } else {
+            // 元の位置に戻る
+            self.translation = .zero
+        }
+
+    }
+
+    // カードViewをドラッグ中
+    private func dragOnChanged(value: DragGesture.Value) {
+
+        // translasionプロパティの値にvalue内のtranslation値を参照させて状態変数で変化させている
+        self.translation = value.translation
+        let diffValue = value.startLocation.x - value.location.x
+
+        let ratio: CGFloat = 1 / 150
+        let opacity = diffValue * ratio
+
+        if value.location.x < value.startLocation.x {
+
+            self.nopeOpacity = Double(opacity)
+            self.goodOpacity = .zero
+        } else if value.location.x > value.startLocation.x {
+
+            // opacityのままだと-方向なので、-opasityとすることで+方向にする
+            self.goodOpacity = Double(-opacity)
+            self.nopeOpacity = .zero
+        }
+    }
+
 } // CardView
+
+struct CardDetailView: View {
+    var body: some View {
+Text("")
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
