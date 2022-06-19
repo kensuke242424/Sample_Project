@@ -13,6 +13,7 @@ struct SignInTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(height: 50)
+            .padding(.leading, 10)
             .textFieldStyle(PlainTextFieldStyle())
             .background(Color.white)
             .cornerRadius(5)
