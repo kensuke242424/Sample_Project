@@ -25,7 +25,7 @@ struct  HomeView: View {
             // 上部ボタン呼び出し
             TopControloView()
 
-            CardView()
+//            CardView()
 
             // 下部ボタン呼び出し
             BottomControlView()
@@ -239,7 +239,7 @@ struct CardDetailView: View {
     } // body
 } // View
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

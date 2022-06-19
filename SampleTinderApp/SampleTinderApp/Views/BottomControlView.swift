@@ -54,7 +54,3 @@ struct BottomButtonView: View {
         } // ZStack
     }
 }
-
-
-
-// ⬆︎で作成したモディファイアをViewに渡せるようにする
