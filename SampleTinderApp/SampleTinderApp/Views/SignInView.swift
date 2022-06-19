@@ -16,19 +16,35 @@ struct SignInView: View {
     var body: some View {
 
         ZStack {
-            Color.red
+//            Color.red
+            LinearGradient(gradient: Gradient(colors: [Color.pink, Color.yellow]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
-            VStack {
-                TextField("名前", text: $name)
-                    //カスタムモディファイア
-                    .asSignInTextField()
+            VStack(spacing: 25) {
+
+                Text("Tinder")
+                    .font(.system(size: 80, weight: .heavy))
+                    .foregroundColor(.white)
 
                 TextField("名前", text: $name)
+                //カスタムモディファイア
                     .asSignInTextField()
 
-                TextField("名前", text: $name)
+                TextField("email", text: $email)
                     .asSignInTextField()
+
+                TextField("password", text: $password)
+                    .asSignInTextField()
+
+                Button(action: {
+
+                }) {
+                    Text("登録")
+                        .foregroundColor(.white)
+                }
+                .frame(width: 200, height: 50)
+                .background(Color.orange)
+                .cornerRadius(10)
             }
             .padding(.horizontal, 50)
         }
