@@ -18,6 +18,7 @@
 		E06CBA8528517C1F000624D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06CBA8428517C1F000624D5 /* Assets.xcassets */; };
 		E06CBA8828517C1F000624D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06CBA8728517C1F000624D5 /* Preview Assets.xcassets */; };
 		E0B8C3FC285F6071007A97B0 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8C3FB285F6071007A97B0 /* SignInView.swift */; };
+		E0B8C3FE285F6471007A97B0 /* SignInTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8C3FD285F6471007A97B0 /* SignInTextModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E06CBA8428517C1F000624D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06CBA8728517C1F000624D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0B8C3FB285F6071007A97B0 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E0B8C3FD285F6471007A97B0 /* SignInTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				E01E028E285646F400E83C99 /* ButtomButtonModifier.swift */,
+				E0B8C3FD285F6471007A97B0 /* SignInTextModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				E0B8C3FC285F6071007A97B0 /* SignInView.swift in Sources */,
 				E01E028F285646F400E83C99 /* ButtomButtonModifier.swift in Sources */,
 				E01E028828563EF300E83C99 /* TopControloView.swift in Sources */,
+				E0B8C3FE285F6471007A97B0 /* SignInTextModifier.swift in Sources */,
 				E01E0294285647A400E83C99 /* Image.Extension.swift in Sources */,
 				E00D0BA5285E0C2500C45486 /* CardViewModel.swift in Sources */,
 			);
