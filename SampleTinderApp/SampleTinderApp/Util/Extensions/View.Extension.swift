@@ -14,4 +14,9 @@ extension View {
 
         modifier(ButtomButtonModifier(size: size))
     }
+
+    func asSignInTextField() -> some View {
+
+        modifier(SignInTextModifier())
+    }
 }
