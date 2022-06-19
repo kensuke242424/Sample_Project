@@ -15,39 +15,54 @@ struct SignInView: View {
 
     var body: some View {
 
-        ZStack {
-//            Color.red
-            LinearGradient(gradient: Gradient(colors: [Color.pink, Color.yellow]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+        NavigationView {
 
-            VStack(spacing: 25) {
+            ZStack {
 
-                Text("Tinder")
-                    .font(.system(size: 80, weight: .heavy))
-                    .foregroundColor(.white)
+                LinearGradient(gradient: Gradient(colors: [Color.pink, Color.yellow]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
 
-                TextField("名前", text: $name)
-                //カスタムモディファイア
-                    .asSignInTextField()
+                VStack(spacing: 25) {
 
-                TextField("email", text: $email)
-                    .asSignInTextField()
-
-                TextField("password", text: $password)
-                    .asSignInTextField()
-
-                Button(action: {
-
-                }) {
-                    Text("登録")
+                    Text("Tinder")
+                        .font(.system(size: 80, weight: .heavy))
                         .foregroundColor(.white)
+
+                    TextField("名前", text: $name)
+                    //カスタムモディファイア
+                        .asSignInTextField()
+
+                    TextField("email", text: $email)
+                        .asSignInTextField()
+
+                    TextField("password", text: $password)
+                        .asSignInTextField()
+
+                    Button(action: {
+
+                    }) {
+                        Text("登録")
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 200, height: 50)
+                    .background(Color.pink)
+                    .cornerRadius(10)
+
+                    NavigationLink(
+                        destination: LogInView(),
+                        label: { Text("アカウントをお持ちの方はコチラ")
+                        })
+
                 }
-                .frame(width: 200, height: 50)
-                .background(Color.orange)
-                .cornerRadius(10)
-            }
-            .padding(.horizontal, 50)
+                .padding(.horizontal, 50)
+
+            } // ZStack
+            // 見えてはいないが、ナビゲーションバーが上部にあるためデザインが少し下めになっている
+            // ナビゲーションバーを⬇︎を記述して消すことでデザインが中央にくる
+            .navigationBarHidden(true)
+
         }
+
 
     }
 }
