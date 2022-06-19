@@ -12,6 +12,8 @@ struct LogInView: View {
     @State var email = ""
     @State var password = ""
 
+    @Environment(\.presentationMode) var presentation
+
     var body: some View {
         ZStack {
 
@@ -39,6 +41,14 @@ struct LogInView: View {
                 .frame(width: 200, height: 50)
                 .background(Color.pink)
                 .cornerRadius(10)
+
+                Button(action: {
+                    self.presentation.wrappedValue.dismiss()
+                }) {
+                    Text("アカウントをお持ちでない方はコチラ")
+                        .font(.callout)
+
+                }
             }
             .padding(.horizontal, 50)
         }
