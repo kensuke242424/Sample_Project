@@ -29,7 +29,7 @@ struct SignInView: View {
                         .foregroundColor(.white)
 
                     TextField("名前", text: $name)
-                    //カスタムモディファイア
+                        //カスタムモディファイア
                         .asSignInTextField()
 
                     TextField("email", text: $email)
@@ -57,13 +57,11 @@ struct SignInView: View {
                 .padding(.horizontal, 50)
 
             } // ZStack
-            // 見えてはいないが、ナビゲーションバーが上部にあるためデザインが少し下めになっている
-            // ナビゲーションバーを⬇︎を記述して消すことでデザインが中央にくる
+            // ナビゲーションバーが上部にあるためデザインが少し下めに詰められる
+            // ナビゲーションバーを⬇︎を記述して消すことができる
             .navigationBarHidden(true)
 
-        }
-
-
+        } // NavigationView
     }
 }
 
