@@ -28,3 +28,4 @@ struct MemoRowView_Previews: PreviewProvider {
         MemoRowView(memo: ["テスト", "15:55", "テストをしています"])
     }
 }
+ 

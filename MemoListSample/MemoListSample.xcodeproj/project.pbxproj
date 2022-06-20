@@ -54,8 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FA195E286061E000BFB660 /* MemoListSampleApp.swift */,
-				E0FA1960286061E000BFB660 /* MemoListView.swift */,
-				E0FA196C28607E7B00BFB660 /* MemoRowView.swift */,
+				E0FA196E2860A8BD00BFB660 /* Views */,
 				E0FA1962286061E200BFB660 /* Assets.xcassets */,
 				E0FA1964286061E200BFB660 /* Preview Content */,
 			);
@@ -68,6 +67,15 @@
 				E0FA1965286061E200BFB660 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0FA196E2860A8BD00BFB660 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0FA1960286061E000BFB660 /* MemoListView.swift */,
+				E0FA196C28607E7B00BFB660 /* MemoRowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
