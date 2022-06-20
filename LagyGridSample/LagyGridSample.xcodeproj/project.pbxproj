@@ -13,6 +13,7 @@
 		E0FA192B285FF60D00BFB660 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FA192A285FF60D00BFB660 /* Preview Assets.xcassets */; };
 		E0FA1932285FF7D700BFB660 /* LazyVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA1931285FF7D700BFB660 /* LazyVGridView.swift */; };
 		E0FA19342860021C00BFB660 /* LazyHGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA19332860021C00BFB660 /* LazyHGridView.swift */; };
+		E0FA193728602BD100BFB660 /* LazyVGridView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA193628602BD100BFB660 /* LazyVGridView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E0FA192A285FF60D00BFB660 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0FA1931285FF7D700BFB660 /* LazyVGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVGridView.swift; sourceTree = "<group>"; };
 		E0FA19332860021C00BFB660 /* LazyHGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyHGridView.swift; sourceTree = "<group>"; };
+		E0FA193628602BD100BFB660 /* LazyVGridView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVGridView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				E0FA1923285FF60B00BFB660 /* LagyGridSampleApp.swift */,
 				E0FA1925285FF60B00BFB660 /* ContentView.swift */,
 				E0FA1931285FF7D700BFB660 /* LazyVGridView.swift */,
+				E0FA193628602BD100BFB660 /* LazyVGridView2.swift */,
 				E0FA19332860021C00BFB660 /* LazyHGridView.swift */,
 				E0FA1927285FF60D00BFB660 /* Assets.xcassets */,
 				E0FA1929285FF60D00BFB660 /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0FA193728602BD100BFB660 /* LazyVGridView2.swift in Sources */,
 				E0FA1926285FF60B00BFB660 /* ContentView.swift in Sources */,
 				E0FA1924285FF60B00BFB660 /* LagyGridSampleApp.swift in Sources */,
 				E0FA1932285FF7D700BFB660 /* LazyVGridView.swift in Sources */,

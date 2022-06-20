@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct LazyVGridView: View {
 
     // GridItemを作成
