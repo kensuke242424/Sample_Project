@@ -22,7 +22,7 @@ struct LazyVGridView2: View {
                  Item(name: "save", image: "magazine.fill"),
                  Item(name: "cystem", image: "gamecontroller.fill")]
 
-    let gridItem: [GridItem] = [GridItem(.adaptive(minimum: 100, maximum: 150))]
+    let gridItem: [GridItem] = [GridItem(.adaptive(minimum: 120))]
 
     var body: some View {
 

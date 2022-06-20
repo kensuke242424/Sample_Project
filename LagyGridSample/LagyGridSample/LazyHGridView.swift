@@ -7,19 +7,38 @@
 
 import SwiftUI
 
+
 struct LazyHGridView: View {
 
-    // 画面の横幅をiPhoneのフレームラインに合わせる
-    private var frameWidth: CGFloat {UIScreen.main.bounds.width}
-    private var vGridAdaptiveItem = [GridItem(.adaptive(minimum: 80), spacing: 15)]
-    private var vGridFixedItem = [GridItem(.fixed(80), spacing: 15)]
-    private var vGridFlexibleItem = [GridItem(.flexible(), spacing: 15)]
+    let hGridItem: [GridItem] = [GridItem(.fixed(800))]
+    let imageList = ["neko1", "neko2", "neko3", "neko4", "neko5"]
 
     var body: some View {
 
-       Text("")
-    } // body
-} // View
+        NavigationView {
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: hGridItem, alignment: .center) {
+
+                    ForEach(0 ..< imageList.count, id: \.self) { index in
+
+                        VStack {
+                            // 猫の写真
+                            Image(imageList[index])
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 200)
+                                .foregroundColor(.white)
+
+                            Text("\(index)")
+                        }
+                    }
+                }
+                .padding()
+            }
+            .navigationTitle("LazyHGrid")
+        }
+    }
+}
 
 struct LazyHGridView_Previews: PreviewProvider {
     static var previews: some View {
