@@ -10,9 +10,9 @@ import SwiftUI
 struct MemoListView: View {
 
     // 二次元配列
-    @State private var memos = [["title1", "10:01", "これはサンプルです。"],
-                                ["title2", "17:11", "メモを残します。"],
-                                ["title3", "16:34", "課題を終わらせる。"]]
+    @State private var memos = [["にんじん", "10:01", "にんじんの美味しい料理の仕方を調べる。"],
+                                ["Swift勉強", "17:11", "SwiftUIでメモアプリ作成"],
+                                ["誕生日", "16:34", "プレゼントを買いに行く"]]
 
     var body: some View {
 
@@ -20,9 +20,9 @@ struct MemoListView: View {
             List {
                 ForEach(memos, id: \.self) { memo in
 
-                    MemoRowView(memo: memo)
-                        .padding()
-
+                    NavigationLink(destination: MemoDetailView(memo: memo)) {
+                        MemoRowView(memo: memo)
+                    }
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: move)
@@ -38,6 +38,7 @@ struct MemoListView: View {
         memos.remove(atOffsets: offsets)
     }
 
+    // 編集メソッド
     func move(offsets: IndexSet, index: Int) {
         memos.move(fromOffsets: offsets, toOffset: index)
     }

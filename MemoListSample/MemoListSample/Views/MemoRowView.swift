@@ -25,7 +25,7 @@ struct MemoRowView: View {
 
 struct MemoRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoRowView(memo: ["テスト", "15:55", "テストをしています"])
+        MemoRowView(memo: ["Swift勉強", "15:55", "Swiftでメモアプリを作成する"])
     }
 }
- 
+
