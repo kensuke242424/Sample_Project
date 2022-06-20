@@ -9,14 +9,17 @@ import SwiftUI
 
 struct MemoListView: View {
 
-    @State var memos = ["a", "i", "u"]
+    // 二次元配列
+    @State private var memos = [["title1", "10:01", "これはサンプルです。"],
+                       ["title2", "17:11", "メモを残します。"],
+                       ["title3", "16:34", "課題を終わらせる。"]]
 
     var body: some View {
 
         List {
             ForEach(memos, id: \.self) { memo in
 
-                Text(memo)
+                MemoRowView(memo: memo)
                     .padding()
 
             }
