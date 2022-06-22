@@ -22,7 +22,9 @@ struct MemoListView: View {
             VStack {
 
                 TextField("予定を追加", text: $newMemo)
+                    .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(color: isEditting ? .blue : .clear, radius: 3)
                 List {
                     ForEach(memos, id: \.self) { memo in
 
