@@ -21,10 +21,16 @@ struct MemoListView: View {
         NavigationView {
             VStack {
 
-                TextField("予定を追加", text: $newMemo)
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .shadow(color: isEditting ? .blue : .clear, radius: 3)
+                TextField("予定を追加", text: $newMemo, onEditingChanged: { begin in
+
+                    if begin {
+                        isEditting.toggle()
+                    }
+                })
+
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .shadow(color: isEditting ? .blue : .clear, radius: 3)
                 List {
                     ForEach(memos, id: \.self) { memo in
 
@@ -38,8 +44,18 @@ struct MemoListView: View {
                 }
                 .navigationBarItems(trailing: EditButton())
                 .navigationTitle(Text("Memos"))
+
+                NavigationLink(destination: NewMemoView()) {
+
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                
+                }
+
             }
-            }
+        }
 
 
     } // body

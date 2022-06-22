@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E019ECC428637A6A007DA48A /* NewMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019ECC328637A6A007DA48A /* NewMemoView.swift */; };
 		E0FA195F286061E000BFB660 /* MemoListSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA195E286061E000BFB660 /* MemoListSampleApp.swift */; };
 		E0FA1961286061E000BFB660 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA1960286061E000BFB660 /* MemoListView.swift */; };
 		E0FA1963286061E200BFB660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FA1962286061E200BFB660 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E019ECC328637A6A007DA48A /* NewMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoView.swift; sourceTree = "<group>"; };
 		E0FA195B286061E000BFB660 /* MemoListSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoListSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FA195E286061E000BFB660 /* MemoListSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListSampleApp.swift; sourceTree = "<group>"; };
 		E0FA1960286061E000BFB660 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				E0FA1960286061E000BFB660 /* MemoListView.swift */,
 				E0FA196C28607E7B00BFB660 /* MemoRowView.swift */,
 				E0FA196F2860C35300BFB660 /* MemoDetailView.swift */,
+				E019ECC328637A6A007DA48A /* NewMemoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FA1961286061E000BFB660 /* MemoListView.swift in Sources */,
+				E019ECC428637A6A007DA48A /* NewMemoView.swift in Sources */,
 				E0FA195F286061E000BFB660 /* MemoListSampleApp.swift in Sources */,
 				E0FA196D28607E7B00BFB660 /* MemoRowView.swift in Sources */,
 				E0FA19702860C35300BFB660 /* MemoDetailView.swift in Sources */,
