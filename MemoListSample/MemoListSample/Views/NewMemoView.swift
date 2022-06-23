@@ -10,7 +10,9 @@ import SwiftUI
 struct NewMemoView: View {
 
     @State private var newMemoTitle = ""
-    @State private var newMemoText = ""
+    @State private var newMemoText =
+"""
+"""
     @State private var isEditting = false
 
     var body: some View {
@@ -25,15 +27,16 @@ struct NewMemoView: View {
             .padding(20)
             .frame(width: 400, height: 50, alignment: .topLeading)
             .font(.title)
+            // NavigationViewのバーを隠す
             .navigationBarHidden(true)
             //        .textFieldStyle(RoundedBorderTextFieldStyle())
             //        .shadow(color: isEditting ? .blue : .clear, radius: 3)
 
             TextEditor(text: $newMemoText)
-                .border(Color.gray, width: 0.3)
+            //                .border(Color.gray, width: 0.3)
                 .ignoresSafeArea()
                 .padding(.horizontal)
-                
+
         }
     }
 }
