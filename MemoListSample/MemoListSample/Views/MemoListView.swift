@@ -21,13 +21,15 @@ struct MemoListView: View {
             VStack {
 
                 List {
-                    ForEach(0...memos.count, id: \.self) { memo in
+                    ForEach(0 ..< memos.count, id: \.self) { index in
 
-                        NavigationLink(destination: MemoDetailView(memo: memos[memo])) {
-                            MemoRowView(memo: memos[memo])
+                        NavigationLink(destination: MemoDetailView(memo: memos[index])) {
+                            MemoRowView(memo: memos[index])
                         }
                     }
+                    // 削除機能
                     .onDelete(perform: delete)
+                    //
                     .onMove(perform: move)
 
                 }
@@ -42,7 +44,6 @@ struct MemoListView: View {
                             .frame(width: 25, height: 25)
                 
                 }
-
             }
         }
 

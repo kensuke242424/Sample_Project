@@ -25,129 +25,116 @@ struct  HomeView: View {
             // 上部ボタン呼び出し
             TopControloView()
 
-//            CardView()
+            //            CardView()
 
             // 下部ボタン呼び出し
             BottomControlView()
-
 
         } // VStack
     } // body
 } // View
 
-// 人物カードのデザインView
-struct CardView: View {
-
-//    // スワイプジェスチャー時の値の変化を監視
-//    @State var translation: CGSize = .zero
-//    // 複数カード生成時のForEachが参照している配列
-//    @State var numbers = [0,1,2,3,4,5]
-//    // 「GOOD」の透明度の変化を監視
-//    @State var goodOpacity: Double = 0
-//    // 「NOPE」の透明度の変化を監視
-//    @State var nopeOpacity: Double = 0
-
-    @EnvironmentObject var vm: CardViewModel
-
-
-    var body: some View {
-
-
-        GeometryReader(content: { geometry in
-
-            ForEach(vm.numbers, id: \.self) { number in
-
-                CardDetailView(number: number, geometry: geometry)
-
-                .offset(x:0, y:-10)
-                // カードを動かすための処理
-                // 状態変数として宣言したtranslationプロパティの値が
-                // .gestureによって変化することでカードの位置を動かしている
-                .offset(vm.numbers.last == number ? vm.translation : .zero)
-                .rotationEffect(vm.numbers.last == number ? .degrees(Double(vm.translation.width / 300 * 20)) : .zero)
-                .gesture(
-                    DragGesture()
-                    // ドラッグによる値の変化をvalueに格納している
-                        .onChanged({ value in
-                            // 関数dragOnChanged
-                            self.dragOnChanged(value: value)
-                        }) // .onChanged
-
-                        .onEnded({ value in
-                            // 関数dragOnEnded
-                            self.dragOnEnded(value: value)
-                        }) // .onEnded
-
-                ) // .gesture
-                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 1), value: vm.translation)
-
-            }// ForEach
-
-
-        }) // GeometryReader®
-    } // body
-
-    // カードViewのドラッグが終了した後
-    private func dragOnEnded(value: DragGesture.Value) {
-
-        vm.goodOpacity = .zero
-        vm.nopeOpacity = .zero
-
-        if value.startLocation.x - 150 > value.location.x {
-
-            // 左側にフェードアウト
-            vm.translation = .init(width: -800, height: 0)
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                vm.numbers.removeLast()
-                vm.translation = .zero
-            }
-
-
-        } else if value.startLocation.x + 150 < value.location.x {
-
-            // 右側にフェードアウト
-            vm.translation = .init(width: 800, height: 0)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                vm.numbers.removeLast()
-                vm.translation = .zero
-            }
-
-        } else {
-            // 元の位置に戻る
-            vm.translation = .zero
-        }
-
-    }
-
-    // カードViewをドラッグ中
-    private func dragOnChanged(value: DragGesture.Value) {
-
-        // translasionプロパティの値にvalue内のtranslation値を参照させて状態変数で変化させている
-        vm.translation = value.translation
-        let diffValue = value.startLocation.x - value.location.x
-
-        let ratio: CGFloat = 1 / 150
-        let opacity = diffValue * ratio
-
-        if value.location.x < value.startLocation.x {
-
-            vm.nopeOpacity = Double(opacity)
-            vm.goodOpacity = .zero
-        } else if value.location.x > value.startLocation.x {
-
-            // opacityのままだと-方向なので、-opasityとすることで+方向にする
-            vm.goodOpacity = Double(-opacity)
-            vm.nopeOpacity = .zero
-        }
-    }
-
-} // CardView
+//// 人物カードのデザインView
+//struct CardView: View {
+//
+//    @EnvironmentObject var vm: CardViewModel
+//
+//    var body: some View {
+//
+//        GeometryReader(content: { geometry in
+//
+//            ForEach(vm.numbers, id: \.self) { number in
+//
+//                CardDetailView(number: number, geometry: geometry)
+//
+//                .offset(x:0, y:-10)
+//                // カードを動かすための処理
+//                // 状態変数として宣言したtranslationプロパティの値が
+//                // .gestureによって変化することでカードの位置を動かしている
+//                .offset(vm.numbers.last == number ? vm.translation : .zero)
+//                .rotationEffect(vm.numbers.last == number ? .degrees(Double(vm.translation.width / 300 * 20)) : .zero)
+//                .gesture(
+//                    DragGesture()
+//                    // ドラッグによる値の変化をvalueに格納している
+//                        .onChanged({ value in
+//                            // 関数dragOnChanged
+//                            self.dragOnChanged(value: value)
+//                        }) // .onChanged
+//
+//                        .onEnded({ value in
+//                            // 関数dragOnEnded
+//                            self.dragOnEnded(value: value)
+//                        }) // .onEnded
+//
+//                ) // .gesture
+//                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 1), value: vm.translation)
+//
+//            }// ForEach
+//        }) // GeometryReader®
+//    } // body
+//
+//    // カードViewのドラッグが終了した後
+//    private func dragOnEnded(value: DragGesture.Value) {
+//
+//        vm.goodOpacity = .zero
+//        vm.nopeOpacity = .zero
+//
+//        if value.startLocation.x - 150 > value.location.x {
+//
+//            // 左側にフェードアウト
+//            vm.translation = .init(width: -800, height: 0)
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//                vm.numbers.removeLast()
+//                vm.translation = .zero
+//            }
+//
+//
+//        } else if value.startLocation.x + 150 < value.location.x {
+//
+//            // 右側にフェードアウト
+//            vm.translation = .init(width: 800, height: 0)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//                vm.numbers.removeLast()
+//                vm.translation = .zero
+//            }
+//
+//        } else {
+//            // 元の位置に戻る
+//            vm.translation = .zero
+//        }
+//
+//    }
+//
+//    // カードViewをドラッグ中
+//    private func dragOnChanged(value: DragGesture.Value) {
+//
+//        // translasionプロパティの値にvalue内のtranslation値を参照させて状態変数で変化させている
+//        vm.translation = value.translation
+//        let diffValue = value.startLocation.x - value.location.x
+//
+//        let ratio: CGFloat = 1 / 150
+//        let opacity = diffValue * ratio
+//
+//        if value.location.x < value.startLocation.x {
+//
+//            vm.nopeOpacity = Double(opacity)
+//            vm.goodOpacity = .zero
+//        } else if value.location.x > value.startLocation.x {
+//
+//            // opacityのままだと-方向なので、-opasityとすることで+方向にする
+//            vm.goodOpacity = Double(-opacity)
+//            vm.nopeOpacity = .zero
+//        }
+//    }
+//
+//} // CardView
 
 struct CardDetailView: View {
 
     var number: Int
-    var geometry: GeometryProxy
+    var geometryWidth: CGFloat
+    var geometryHeight: CGFloat
     @EnvironmentObject var vm: CardViewModel
 
     var body: some View {
@@ -163,7 +150,7 @@ struct CardDetailView: View {
 
             }
             // Imageとグラディエントをまとめてモディファイアでフレーム調整
-            .frame(width: geometry.size.width - 20, height: geometry.size.height)
+            .frame(width: geometryWidth - 20, height: geometryHeight)
             .cornerRadius(10)
             .padding(.all, 10)
             .shadow(radius: 10)
@@ -172,17 +159,25 @@ struct CardDetailView: View {
             VStack {
 
                 HStack {
-                    Text("GOOD")
-                        .font(.system(size: 40, weight: .heavy))
-                        .foregroundColor(.green)
-                        .padding(.all, 5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.green, lineWidth: 4)
-                        )
-                        .opacity(vm.numbers.last == number ? vm.goodOpacity : .zero)
-
+                    if let unwrappedNumberslast = vm.numbers.last {
+                        Text("GOOD")
+                            .font(.system(size: 40, weight: .heavy))
+                            .foregroundColor(.green)
+                            .padding(.all, 5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(Color.green, lineWidth: 4)
+                            )
+                            .opacity(unwrappedNumberslast == number ? vm.goodOpacity : .zero)
+                    } else {
+                        Text("ああああああ")
+                    }
                     Spacer()
+
+                    Button("numbersのlast") {
+                        print(vm.numbers.last!)
+                        print(number)
+                    }
 
                     Text("NOPE")
                         .font(.system(size: 40, weight: .heavy))
@@ -241,7 +236,8 @@ struct CardDetailView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        CardDetailView(number: 5, geometryWidth: 400, geometryHeight: 700)
+            .environmentObject(CardViewModel())
     }
 }
 

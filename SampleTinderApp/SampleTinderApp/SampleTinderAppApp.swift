@@ -11,7 +11,7 @@ import SwiftUI
 struct SampleTinderAppApp: App {
     var body: some Scene {
         WindowGroup {
-             HomeView()
+            CardDetailView(number: 5, geometryWidth: 400, geometryHeight: 700)
                 .environmentObject(CardViewModel())
         }
     }
