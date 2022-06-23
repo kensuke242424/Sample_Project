@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct NewMemoView: View {
+
+    @State private var newMemoTitle = ""
+    @State private var newMemoText = ""
+    @State private var isEditting = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        VStack {
+            TextField("タイトル", text: $newMemoTitle, onEditingChanged: { begin in
+
+                if begin {
+                    isEditting.toggle()
+                }
+            })
+            .padding(10)
+            .frame(width: 400, height: 70, alignment: .leading)
+            .font(.title)
+            //        .textFieldStyle(RoundedBorderTextFieldStyle())
+            //        .shadow(color: isEditting ? .blue : .clear, radius: 3)
+
+            TextEditor(text: $newMemoText)
+                .border(Color.gray, width: 0.3)
+                .padding()
+                
+        }
     }
 }
 
