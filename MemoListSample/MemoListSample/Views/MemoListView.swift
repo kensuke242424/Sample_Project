@@ -13,7 +13,8 @@ struct MemoListView: View {
     @State private var memos = [["title": "にんじん", "nowTime": "10:01", "memoText": "にんじんの美味しい料理の仕方を調べる。"],
                                 ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"],
                                 ["title": "誕生日",  "nowTime": "16:34", "memoText": "プレゼントを買いに行く"]]
-    
+
+    @State private var isDisable = false
 
     var body: some View {
 

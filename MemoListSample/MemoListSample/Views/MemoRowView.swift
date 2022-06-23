@@ -15,6 +15,7 @@ struct MemoRowView: View {
 
         VStack(alignment: .leading) {
             Text(memo["title"]!)
+                .font(.headline)
                 .padding(.horizontal, 20.0)
                 .padding(.bottom, 5)
             HStack {
@@ -22,6 +23,7 @@ struct MemoRowView: View {
                     .opacity(0.5)
                 Spacer()
                 Text(memo["memoText"]!)
+                    .opacity(0.5)
                 // 行の表示数を制限する
                     .lineLimit(1)
 

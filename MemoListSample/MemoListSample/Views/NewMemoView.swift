@@ -14,6 +14,8 @@ struct NewMemoView: View {
 """
 """
     @State private var isEditting = false
+    // Home画面に戻るためのプロパティ
+    @Environment(\.presentationMode) var presentation
 
     var body: some View {
 
@@ -28,18 +30,13 @@ struct NewMemoView: View {
             .frame(width: 400, height: 50)
             .font(.title)
             .border(.gray)
-            // NavigationViewのバーを隠す
-            .navigationBarHidden(true)
-            //        .textFieldStyle(RoundedBorderTextFieldStyle())
-            //        .shadow(color: isEditting ? .blue : .clear, radius: 3)
 
             TextEditor(text: $newMemoText)
-            //                .border(Color.gray, width: 0.3)
                 .ignoresSafeArea()
                 .padding(.horizontal)
 
         }
-        .navigationBarTitle(Text("詳細"),
+        .navigationBarTitle(Text("新規メモ"),
                             displayMode: .inline)
 
     }

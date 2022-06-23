@@ -21,15 +21,14 @@ struct MemoDetailView: View {
                     .fontWeight(.thin)
                 Spacer()
                 Text(memo["nowTime"]!)
+                    .opacity(0.5)
             }
             .padding(.bottom, 20)
             Text(memo["memoText"]!)
 
             Spacer()
         }
-        .padding(.all, 20)
-        .navigationBarTitle(Text("詳細"),
-                            displayMode: .inline)
+        .padding(.horizontal, 20)
 
     }
 }
