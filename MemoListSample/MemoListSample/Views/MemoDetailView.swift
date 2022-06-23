@@ -10,20 +10,20 @@ import SwiftUI
 struct MemoDetailView: View {
 
     // 引数としてMemoLisetViewから要素を受け取る
-    var memo: [String]
+    var memo: [String:String]
 
     var body: some View {
 
         VStack(alignment: .leading) {
             HStack {
-                Text(memo[0])
+                Text(memo["title"]!)
                     .font(.largeTitle)
                     .fontWeight(.thin)
                 Spacer()
-                Text(memo[1])
+                Text(memo["nowTime"]!)
             }
             .padding(.bottom, 20)
-            Text(memo[2])
+            Text(memo["memoText"]!)
 
             Spacer()
         }
@@ -36,7 +36,7 @@ struct MemoDetailView: View {
 
 struct MemoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoDetailView(memo: ["Swift勉強", "15:55", "Swiftでメモアプリを作成する"])
+        MemoDetailView(memo: ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
     }
 }
 
