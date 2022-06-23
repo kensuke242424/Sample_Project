@@ -35,6 +35,7 @@ struct MemoListView: View {
                 }
                 .navigationBarItems(trailing: EditButton())
                 .navigationTitle(Text("メモ"))
+                
 
                 NavigationLink(destination: NewMemoView()) {
 
@@ -46,7 +47,6 @@ struct MemoListView: View {
                 }
             }
         }
-
 
     } // body
 

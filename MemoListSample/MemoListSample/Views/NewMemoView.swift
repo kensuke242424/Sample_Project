@@ -22,15 +22,17 @@ struct NewMemoView: View {
                     isEditting.toggle()
                 }
             })
-            .padding(10)
-            .frame(width: 400, height: 70, alignment: .leading)
+            .padding(20)
+            .frame(width: 400, height: 50, alignment: .topLeading)
             .font(.title)
+            .navigationBarHidden(true)
             //        .textFieldStyle(RoundedBorderTextFieldStyle())
             //        .shadow(color: isEditting ? .blue : .clear, radius: 3)
 
             TextEditor(text: $newMemoText)
                 .border(Color.gray, width: 0.3)
-                .padding()
+                .ignoresSafeArea()
+                .padding(.horizontal)
                 
         }
     }
