@@ -25,8 +25,9 @@ struct NewMemoView: View {
                 }
             })
             .padding(20)
-            .frame(width: 400, height: 50, alignment: .topLeading)
+            .frame(width: 400, height: 50)
             .font(.title)
+            .border(.gray)
             // NavigationViewのバーを隠す
             .navigationBarHidden(true)
             //        .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -38,6 +39,9 @@ struct NewMemoView: View {
                 .padding(.horizontal)
 
         }
+        .navigationBarTitle(Text("詳細"),
+                            displayMode: .inline)
+
     }
 }
 

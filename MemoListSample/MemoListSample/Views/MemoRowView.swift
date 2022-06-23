@@ -13,19 +13,29 @@ struct MemoRowView: View {
 
     var body: some View {
 
-        HStack {
+        VStack(alignment: .leading) {
             Text(memo["title"]!)
-            Spacer()
-            Text(memo["nowTime"]!)
-        }
-        .padding(.horizontal, 20.0)
+                .padding(.horizontal, 20.0)
+                .padding(.bottom, 5)
+            HStack {
+                Text(memo["nowTime"]!)
+                    .opacity(0.5)
+                Spacer()
+                Text(memo["memoText"]!)
+                // 行の表示数を制限する
+                    .lineLimit(1)
 
+            }
+            .padding(.horizontal, 20.0)
+
+            Spacer()
+        }
     }
 }
 
-//struct MemoRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MemoRowView(memo: ["Swift勉強", "15:55", "Swiftでメモアプリを作成する"])
-//    }
-//}
+struct MemoRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        MemoRowView(memo: ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
+    }
+}
 
