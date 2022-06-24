@@ -14,7 +14,8 @@ struct MemoListView: View {
                                 ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"],
                                 ["title": "誕生日",  "nowTime": "16:34", "memoText": "プレゼントを買いに行く"]]
 
-    @State private var isDisable = false
+
+    @State private var isActive = false
 
     var body: some View {
 
@@ -36,15 +37,24 @@ struct MemoListView: View {
                 }
                 .navigationBarItems(trailing: EditButton())
                 .navigationTitle(Text("メモ"))
-                
 
-                NavigationLink(destination: NewMemoView()) {
+                // 新規メモViewへの画面遷移に使用
+                // 下部のボタンとisActiveプロパティで紐づけている
+                NavigationLink(destination: NewMemoView(), isActive: $isActive) {
+                    EmptyView()
+                }
 
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
-                
+                // 新規メモ生成ボタン
+                Button(action: {
+
+                    memos.insert(["title": "新規メモ",  "nowTime": "", "memoText": ""], at: 0)
+                    isActive.toggle()
+                }) {
+                    Image(systemName: "square.and.pencil")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.top)
                 }
             }
         }

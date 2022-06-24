@@ -25,6 +25,7 @@ struct MemoDetailView: View {
             }
             .padding(.bottom, 20)
             Text(memo["memoText"]!)
+                .fontWeight(.light)
 
             Spacer()
         }
