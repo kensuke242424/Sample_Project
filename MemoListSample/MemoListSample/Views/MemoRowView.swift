@@ -19,6 +19,7 @@ struct MemoRowView: View {
                 .font(.headline)
                 .padding(.horizontal, 20.0)
                 .padding(.bottom, 5)
+                .lineLimit(1)
             HStack {
                 Text(memo["memoTime"]!)
                     .opacity(0.5)
@@ -38,7 +39,7 @@ struct MemoRowView: View {
 
 struct MemoRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoRowView(memo: ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
+        MemoRowView(memo: ["memoTitle": "Swift勉強", "memoTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
     }
 }
 
