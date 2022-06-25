@@ -14,12 +14,13 @@ struct MemoRowView: View {
     var body: some View {
 
         VStack(alignment: .leading) {
-            Text(memo["title"]!)
+
+            Text(memo["memoTitle"]!)
                 .font(.headline)
                 .padding(.horizontal, 20.0)
                 .padding(.bottom, 5)
             HStack {
-                Text(memo["nowTime"]!)
+                Text(memo["memoTime"]!)
                     .opacity(0.5)
                 Spacer()
                 Text(memo["memoText"]!)

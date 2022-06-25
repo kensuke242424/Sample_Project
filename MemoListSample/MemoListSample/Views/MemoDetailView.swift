@@ -16,11 +16,11 @@ struct MemoDetailView: View {
 
         VStack(alignment: .leading) {
             HStack {
-                Text(memo["title"]!)
+                Text(memo["memoTitle"]!)
                     .font(.largeTitle)
                     .fontWeight(.thin)
                 Spacer()
-                Text(memo["nowTime"]!)
+                Text(memo["memoTime"]!)
                     .opacity(0.5)
             }
             .padding(.bottom, 20)

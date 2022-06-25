@@ -16,14 +16,14 @@ struct NewMemoView: View {
 
     @FocusState private var foucsedField: Field?
 
-//    @Binding var memos: [String: String]
-    @State private var newMemoTitle = ""
-    @State private var newMemoText =
-"""
-"""
+    //    @Binding var memos: [String: String]
+    @State var newMemoTitle = ""
+    @State var newMemoText = ""
+
     @State private var isEditting = false
     // Home画面に戻るためのプロパティ
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var vm: MemoModel
 
 
 
@@ -31,21 +31,27 @@ struct NewMemoView: View {
 
         VStack {
             TextField("タイトル", text: $newMemoTitle)
-            .padding(20)
-            .frame(width: 400, height: 50)
-            .font(.title)
-            .focused($foucsedField, equals: .title)
+                .padding(20)
+                .frame(width: 400, height: 50)
+                .font(.title)
+                .focused($foucsedField, equals: .title)
 
 
             TextEditor(text: $newMemoText)
-//                .ignoresSafeArea()
+            //                .ignoresSafeArea()
                 .padding(.horizontal)
 
         } // VStack
         .navigationBarTitle(Text(""),
                             displayMode: .inline)
         .navigationBarItems(trailing: Button("完了") {
+
+            vm.memos[0]["memoTitle"] = newMemoTitle
+            vm.memos[0]["memoTime"] = "\(Int.random(in: 0...12)) : \(Int.random(in: 0...59))"
+            vm.memos[0]["memoText"] = newMemoText
+
             self.presentationMode.wrappedValue.dismiss()
+
         }.padding())
 
         // .onApperはView表示時に発生する処理のこと

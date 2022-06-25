@@ -9,13 +9,9 @@ import SwiftUI
 
 struct MemoListView: View {
 
-    // 辞書型配列
-    @State private var memos = [["title": "にんじん", "nowTime": "10:01", "memoText": "にんじんの美味しい料理の仕方を調べる。"],
-                                ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"],
-                                ["title": "誕生日",  "nowTime": "16:34", "memoText": "プレゼントを買いに行く"]]
-
-
+    @EnvironmentObject var vm: MemoModel
     @State private var isActive = false
+    private var newMemoRow = ["memoTitle": "", "memoTime": "", "memoText": ""]
 
     var body: some View {
 
@@ -23,15 +19,15 @@ struct MemoListView: View {
             VStack {
 
                 List {
-                    ForEach(0 ..< memos.count, id: \.self) { index in
+                    ForEach(0 ..< vm.memos.count, id: \.self) { index in
 
-                        NavigationLink(destination: MemoDetailView(memo: memos[index])) {
-                            MemoRowView(memo: memos[index])
+                        NavigationLink(destination: MemoDetailView(memo: vm.memos[index])) {
+                            MemoRowView(memo: vm.memos[index])
                         }
                     }
                     // 削除機能
                     .onDelete(perform: delete)
-                    //
+                    // 編集機能(並び替え)
                     .onMove(perform: move)
 
                 }
@@ -47,7 +43,7 @@ struct MemoListView: View {
                 // 新規メモ生成ボタン
                 Button(action: {
 
-                    memos.insert(["title": "新規メモ",  "nowTime": "", "memoText": ""], at: 0)
+                    vm.memos.insert(newMemoRow, at: 0)
                     isActive.toggle()
                 }) {
                     Image(systemName: "square.and.pencil")
@@ -57,18 +53,23 @@ struct MemoListView: View {
                         .padding(.top)
                 }
             }
-        }
+            .onAppear() {
+                if vm.memos[0] == newMemoRow {
+                    vm.memos.remove(at: 0)
+                }
+            }
 
+        } // NavigationView
     } // body
 
     // デリートメソッド
     func delete(offsets: IndexSet) {
-        memos.remove(atOffsets: offsets)
+        vm.memos.remove(atOffsets: offsets)
     }
 
     // 編集メソッド
     func move(offsets: IndexSet, index: Int) {
-        memos.move(fromOffsets: offsets, toOffset: index)
+        vm.memos.move(fromOffsets: offsets, toOffset: index)
     }
 
 } // View
@@ -76,5 +77,6 @@ struct MemoListView: View {
 struct MemoListView_Previews: PreviewProvider {
     static var previews: some View {
         MemoListView()
+            .environmentObject(MemoModel())
     }
 }

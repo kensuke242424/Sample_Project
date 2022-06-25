@@ -12,6 +12,7 @@ struct MemoListSampleApp: App {
     var body: some Scene {
         WindowGroup {
             MemoListView()
+                .environmentObject(MemoModel())
         }
     }
 }
