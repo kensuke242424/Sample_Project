@@ -9,9 +9,12 @@ import SwiftUI
 
 struct MemoListView: View {
 
-    @EnvironmentObject var vm: MemoModel
+    // MemoModelのデータを呼び出し
+    @EnvironmentObject var vm: MemoData
+    // 新規メモViewへの遷移フラグを管理
     @State private var isActive = false
-    private var newMemoRow = ["memoTitle": "", "memoTime": "", "memoText": ""]
+    // 新規メモ作成ボタンをタップするとこのプロパティ内の空メモ要素が配列memosの[0]にインサートされる
+    private var newMemo = ["memoTitle": "", "memoTime": "", "memoText": ""]
 
     var body: some View {
 
@@ -43,7 +46,7 @@ struct MemoListView: View {
                 // 新規メモ生成ボタン
                 Button(action: {
 
-                    vm.memos.insert(newMemoRow, at: 0)
+                    vm.memos.insert(newMemo, at: 0)
                     isActive.toggle()
                 }) {
                     Image(systemName: "square.and.pencil")
@@ -54,7 +57,7 @@ struct MemoListView: View {
                 }
             }
             .onAppear() {
-                if vm.memos[0] == newMemoRow {
+                if vm.memos[0] == newMemo {
                     vm.memos.remove(at: 0)
                 }
             }
@@ -77,6 +80,6 @@ struct MemoListView: View {
 struct MemoListView_Previews: PreviewProvider {
     static var previews: some View {
         MemoListView()
-            .environmentObject(MemoModel())
+            .environmentObject(MemoData())
     }
 }

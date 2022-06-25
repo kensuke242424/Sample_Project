@@ -36,7 +36,7 @@ struct MemoDetailView: View {
 
 struct MemoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoDetailView(memo: ["title": "Swift勉強", "nowTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
+        MemoDetailView(memo: ["memoTitle": "Swift勉強", "memoTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
     }
 }
 

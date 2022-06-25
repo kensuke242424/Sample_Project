@@ -10,20 +10,16 @@ import SwiftUI
 struct NewMemoView: View {
 
     // フォーカスが当たるTextFieldを判断するためのenum
-    enum Field: Hashable {
-        case title
-    }
+    enum Field: Hashable { case title }
 
     @FocusState private var foucsedField: Field?
-
-    //    @Binding var memos: [String: String]
     @State var newMemoTitle = ""
     @State var newMemoText = ""
 
     @State private var isEditting = false
     // Home画面に戻るためのプロパティ
     @Environment(\.presentationMode) private var presentationMode
-    @EnvironmentObject var vm: MemoModel
+    @EnvironmentObject var vm: MemoData
 
 
 
@@ -47,7 +43,8 @@ struct NewMemoView: View {
         .navigationBarItems(trailing: Button("完了") {
 
             vm.memos[0]["memoTitle"] = newMemoTitle
-            vm.memos[0]["memoTime"] = "\(Int.random(in: 0...12)) : \(Int.random(in: 0...59))"
+            vm.memos[0]["memoTime"] =
+            "\(Int.random(in: 0...1))\(Int.random(in: 0...9)) : \(Int.random(in: 0...5))\(Int.random(in: 0...9))"
             vm.memos[0]["memoText"] = newMemoText
 
             self.presentationMode.wrappedValue.dismiss()
@@ -58,7 +55,7 @@ struct NewMemoView: View {
         // NewMemoViewへの遷移から、0.5秒ずらしてenumの値を更新し、キーボード表示の処理を行う
         .onAppear() {
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 foucsedField = .title
             }
         }

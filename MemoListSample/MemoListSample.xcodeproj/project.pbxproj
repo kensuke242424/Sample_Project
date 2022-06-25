@@ -14,7 +14,7 @@
 		E0FA1966286061E200BFB660 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FA1965286061E200BFB660 /* Preview Assets.xcassets */; };
 		E0FA196D28607E7B00BFB660 /* MemoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA196C28607E7B00BFB660 /* MemoRowView.swift */; };
 		E0FA19702860C35300BFB660 /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA196F2860C35300BFB660 /* MemoDetailView.swift */; };
-		E0FE8A052865E3AB005B7466 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE8A042865E3AB005B7466 /* MemoModel.swift */; };
+		E0FE8A052865E3AB005B7466 /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE8A042865E3AB005B7466 /* MemoData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		E0FA1965286061E200BFB660 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0FA196C28607E7B00BFB660 /* MemoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRowView.swift; sourceTree = "<group>"; };
 		E0FA196F2860C35300BFB660 /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
-		E0FE8A042865E3AB005B7466 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
+		E0FE8A042865E3AB005B7466 /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		E0FE8A032865E375005B7466 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E0FE8A042865E3AB005B7466 /* MemoModel.swift */,
+				E0FE8A042865E3AB005B7466 /* MemoData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 				E0FA195F286061E000BFB660 /* MemoListSampleApp.swift in Sources */,
 				E0FA196D28607E7B00BFB660 /* MemoRowView.swift in Sources */,
 				E0FA19702860C35300BFB660 /* MemoDetailView.swift in Sources */,
-				E0FE8A052865E3AB005B7466 /* MemoModel.swift in Sources */,
+				E0FE8A052865E3AB005B7466 /* MemoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
