@@ -13,10 +13,7 @@ struct MemoDetailView: View {
     @StateObject var vm: MemoData
     // 選択されたメモリストのindexナンバーを受け取る
     let indexNumber: Int
-    // ここで編集された値が完了ボタンを押すことで新しくメモタイトルとして更新される
-    @State private var edditMemoTitle = ""
-    // ここで編集された値が完了ボタンを押すことで新しくメモテキストとして更新される
-    @State private var edditMemoText = ""
+
     // Home画面に戻るためのプロパティ
     @Environment(\.presentationMode) private var presentationMode
 
@@ -24,8 +21,9 @@ struct MemoDetailView: View {
 
         VStack(alignment: .leading) {
             HStack {
-                TextField("タイトル", text: $edditMemoTitle)
+                Text(vm.memos[indexNumber]["memoTitle"]!)
                     .font(.largeTitle)
+                    .padding(.horizontal)
 
                 Spacer()
 
@@ -34,20 +32,14 @@ struct MemoDetailView: View {
             }
             .padding(.bottom, 20)
              // メモ詳細を記入するテキストボックス
-            TextEditor(text: $edditMemoText)
+            Text(vm.memos[indexNumber]["memoText"]!)
                 .padding(.horizontal)
 
             Spacer()
 
         }
         .padding(.horizontal, 20)
-        .navigationBarTitle(Text("メモ編集画面"),
-                            displayMode: .inline)
         .navigationBarItems(trailing: Button("完了") {
-
-            // 完了ボタンを押すことでmemoの値を更新する
-            vm.memos[indexNumber]["memoTitle"]! = edditMemoTitle
-            vm.memos[indexNumber]["memoText"]! = edditMemoText
 
             self.presentationMode.wrappedValue.dismiss()
 
@@ -58,7 +50,7 @@ struct MemoDetailView: View {
 
 struct MemoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoDetailView(vm: MemoData(),indexNumber: 1)
+        MemoDetailView(vm: MemoData(),indexNumber: 0)
     }
 }
 
