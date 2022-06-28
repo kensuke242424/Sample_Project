@@ -24,7 +24,7 @@ struct MemoListView: View {
                 List {
                     ForEach(0 ..< vm.memos.count, id: \.self) { index in
 
-                        NavigationLink(destination: MemoDetailView(memo: $vm.memos[index])) {
+                        NavigationLink(destination: MemoDetailView(vm: vm, indexNumber: index)) {
                             MemoRowView(memo: vm.memos[index])
                         }
                     }
@@ -56,6 +56,7 @@ struct MemoListView: View {
                         .padding(.top)
                 }
             }
+            // メモリスト画面表示時に、タイトルと詳細が空の新規メモが存在していた場合自動で削除
             .onAppear() {
                 if vm.memos[0] == newMemo {
                     vm.memos.remove(at: 0)

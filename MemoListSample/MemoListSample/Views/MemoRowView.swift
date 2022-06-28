@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MemoRowView: View {
 
-    var memo: [String:String]
+    var memo: [String: String]
 
     var body: some View {
 
