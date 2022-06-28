@@ -10,7 +10,7 @@ import SwiftUI
 struct MemoDetailView: View {
 
     // 引数としてMemoLisetViewから要素を受け取る
-    var memo: [String:String]
+    @Binding var memo: [String:String]
 
     var body: some View {
 
@@ -36,7 +36,7 @@ struct MemoDetailView: View {
 
 struct MemoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoDetailView(memo: ["memoTitle": "Swift勉強", "memoTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"])
+        MemoDetailView(memo: .constant(["memoTitle": "Swift勉強", "memoTime": "17:11", "memoText": "SwiftUIでメモアプリ作成"]))
     }
 }
 

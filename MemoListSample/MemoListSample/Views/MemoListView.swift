@@ -10,11 +10,11 @@ import SwiftUI
 struct MemoListView: View {
 
     // MemoModelのデータを呼び出し
-    @EnvironmentObject var vm: MemoData
+    @StateObject var vm: MemoData
     // 新規メモViewへの遷移フラグを管理
     @State private var isActive = false
     // 新規メモ作成ボタンをタップするとこのプロパティ内の空メモ要素が配列memosの[0]にインサートされる
-    private var newMemo = ["memoTitle": "", "memoTime": "", "memoText": ""]
+    var newMemo = ["memoTitle": "", "memoTime": "", "memoText": ""]
 
     var body: some View {
 
@@ -24,7 +24,7 @@ struct MemoListView: View {
                 List {
                     ForEach(0 ..< vm.memos.count, id: \.self) { index in
 
-                        NavigationLink(destination: MemoDetailView(memo: vm.memos[index])) {
+                        NavigationLink(destination: MemoDetailView(memo: $vm.memos[index])) {
                             MemoRowView(memo: vm.memos[index])
                         }
                     }
@@ -39,7 +39,7 @@ struct MemoListView: View {
 
                 // 新規メモViewへの画面遷移に使用
                 // 下部のボタンとisActiveプロパティで紐づけている
-                NavigationLink(destination: NewMemoView(), isActive: $isActive) {
+                NavigationLink(destination: NewMemoView(vm: vm), isActive: $isActive) {
                     EmptyView()
                 }
 
@@ -79,7 +79,6 @@ struct MemoListView: View {
 
 struct MemoListView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoListView()
-            .environmentObject(MemoData())
+        MemoListView(vm: MemoData())
     }
 }

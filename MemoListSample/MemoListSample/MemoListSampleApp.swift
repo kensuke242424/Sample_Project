@@ -11,8 +11,7 @@ import SwiftUI
 struct MemoListSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            MemoListView()
-                .environmentObject(MemoData())
+            MemoListView(vm: MemoData())
         }
     }
 }

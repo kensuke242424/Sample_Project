@@ -48,7 +48,3 @@ func isPrimeNumber(divisorNumber: Int, brokenNumber: Int) {
 } // func isPrimeNumber
 
 isPrimeNumber(divisorNumber: 1, brokenNumber: 10)
-
-
-
-
