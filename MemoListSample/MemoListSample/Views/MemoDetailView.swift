@@ -22,7 +22,7 @@ struct MemoDetailView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(vm.memos[indexNumber]["memoTitle"]!)
-                    .font(.largeTitle)
+                    .font(.title)
                     .padding(.horizontal)
 
                 Spacer()

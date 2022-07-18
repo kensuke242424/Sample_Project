@@ -43,9 +43,10 @@ struct MemoListView: View {
                     EmptyView()
                 }
 
-                // 新規メモ生成ボタン
+                // 新規メモView遷移ボタン
                 Button(action: {
 
+                    // 新規メモデータをメモデータ配列のindex[0](最前列)へ格納
                     vm.memos.insert(newMemo, at: 0)
                     isActive.toggle()
                 }) {
@@ -55,10 +56,11 @@ struct MemoListView: View {
                         .frame(width: 25, height: 25)
                         .padding(.top)
                 }
-            }
-            // メモリスト画面表示時に、タイトルと詳細が空の新規メモが存在していた場合自動で削除
+            } // VStack
+//             メモリスト表示時に、タイトルと詳細が空の新規メモが存在していた場合、自動で削除
             .onAppear() {
-                if vm.memos[0] == newMemo {
+                if vm.memos[0]["memoTitle"] == "" && vm.memos[0]["memoText"] == "" {
+                    print("メモが空白だったので削除しました")
                     vm.memos.remove(at: 0)
                 }
             }

@@ -13,9 +13,12 @@ struct NewMemoView: View {
     enum Field { case title }
 
     @FocusState private var foucsedField: Field?
-
-    @State var newMemoTitle = ""
-    @State var newMemoText = ""
+    // 現在時刻を出力するためのDateインスタンス
+    private let date = Date()
+    private let dateFormatter =  DateFormatter()
+    @State private var newMemoTitle = ""
+    @State private var newMemoText = ""
+    @State private var newMemoTime = ""
     @StateObject var vm: MemoData
 
     // Home画面に戻るためのプロパティ
@@ -41,8 +44,13 @@ struct NewMemoView: View {
                             displayMode: .inline)
         .navigationBarItems(trailing: Button("完了") {
 
-            vm.memos[0]["memoTitle"]! = newMemoTitle
-            vm.memos[0]["memoText"]! = newMemoText
+                // 現在時刻を生成して新規メモのmemoTextに格納
+                dateFormatter.dateFormat = "MM月dd日"
+                newMemoTime = dateFormatter.string(from: date)
+
+            vm.memos[0]["memoTitle"] = newMemoTitle
+            vm.memos[0]["memoText"] = newMemoText
+            vm.memos[0]["memoTime"] = newMemoTime
 
             self.presentationMode.wrappedValue.dismiss()
 
